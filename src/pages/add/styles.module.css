@@ -1,0 +1,86 @@
+.mainContaint{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.title{
+    font-size: 3.125rem;
+    font-weight: 500;
+}
+
+.cards{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    color: black;
+    width: 90vw;
+    max-width: 700px;
+    height: 100px;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 10px;
+}
+
+.criar{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonCriar{
+    padding: 10px;
+    font-size: 15px;
+    width: 90vw;
+    max-width: 500px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #01A998;
+    color: white;
+}
+
+.nomeEvento{
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.endereco,
+.data,
+.artista{
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    text-transform: uppercase;
+}
+
+.logOut{
+    position: absolute;
+    padding: 20px;
+}
+
+.buttonLogOut{
+    background-color: #BE0D2D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid white;
+    display: flex;
+    cursor: pointer;
+}

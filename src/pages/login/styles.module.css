@@ -1,0 +1,88 @@
+.mainContaint{
+    background-image: url('../../assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.loginContainer{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.logo{
+    width: 275px;
+}
+
+.name{
+    font-size: 35px;
+    color: white;
+    max-width: 230px;
+}
+
+.titleLogin{
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin: 15px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #E1E1E1;
+    margin-bottom: 5px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.entrar,
+.registrese,
+.registrar,
+.cancelar{
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.entrar{
+    background-color: #2670B4;
+}
+
+.registrese{
+    background-color: #01A998;
+}
+
+.span{
+    margin-left: 5px;
+}
+
+.cancelar{
+    background-color: #929292;
+}
