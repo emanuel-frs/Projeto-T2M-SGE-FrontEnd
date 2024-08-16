@@ -18,64 +18,13 @@
     font-weight: 500;
 }
 
-.cards{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card{
-    color: black;
-    width: 90vw;
-    max-width: 700px;
-    height: 100px;
-    padding: 5px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 10px;
-    border: 2px solid rgb(194, 194, 194);
-    border-radius: 10px;
-}
-
-.criar{
-    display: flex;
-    justify-content: center;
-}
-
-.buttonCriar{
-    padding: 10px;
-    font-size: 15px;
-    width: 90vw;
-    max-width: 500px;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #01A998;
-    color: white;
-}
-
-.nomeEvento{
-    font-size: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.endereco,
-.data,
-.artista{
-    font-size: 14px;
-    color: rgb(100, 100, 100);
-    text-transform: uppercase;
-}
-
-.logOut{
+.goBack{
     position: absolute;
     padding: 20px;
 }
 
-.buttonLogOut{
-    background-color: #BE0D2D;
+.buttonGoBack{
+    background-color: #54595f;
     color: white;
     padding: 10px;
     font-size: 15px;
@@ -83,4 +32,83 @@
     border: 2px solid white;
     display: flex;
     cursor: pointer;
+}
+
+.etapas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.etapa{
+    background-color: #D9D9D9;
+    width: 90vw;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.etapaT{
+    background-color: #8E8E8E;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputs{
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.inputT{
+    display: none;
+    background-color: #5F5F5F;
+}
+
+.next{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+
+.rightButton{
+    padding: 10px 15px;
+    background-color: #2670B4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rightButtonT{
+    background-color: #5F5F5F;
+    color: #8E8E8E;
+    cursor: auto;
+}
+
+.search,
+.add{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.search{
+    background-color: #01A998;
+}
+
+.add{
+    background-color: #CD800D;
 }
