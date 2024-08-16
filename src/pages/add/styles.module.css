@@ -50,6 +50,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
+    transition: background-color 0.3s ease, height 0.3s ease;
 }
 
 .etapaT{
@@ -62,16 +63,24 @@
     flex-direction: column;
 }
 
-.inputs{
+.inputs {
     margin-bottom: 10px;
     padding: 5px 10px;
     font-size: 15px;
     border-radius: 5px;
+    background-color: white;
+    transition: background-color 0.3s ease, opacity 0.3s ease, height 0.3s ease;
+    opacity: 1;
+    height: auto;
 }
 
-.inputT{
-    display: none;
+.inputT {
     background-color: #5F5F5F;
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
 }
 
 .next{

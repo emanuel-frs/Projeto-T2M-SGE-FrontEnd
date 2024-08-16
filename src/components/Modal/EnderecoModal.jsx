@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API_BASE_URL = "http://localhost:5296";
 const axiosInstance = axios.create({
@@ -33,7 +34,6 @@ export default function EnderecoModal({ isOpen, onClose, onSelect }) {
         setSelectedEnderecoId(enderecoId);
         onSelect(enderecoId);
         onClose();
-        console.log(enderecoId)
     };
 
     if (!isOpen) return null;

@@ -19,7 +19,7 @@ export const getAllArtistaEvento = async () => {
         const response = await axiosInstance.get('/api/ArtistaEvento', {});
         return response.data;
     } catch (error) {
-        console.error("Erro ao buscar ArtistaEvento:", error);
+        console.error("Erro ao buscar Evento:", error);
         return [];
     }
 }
@@ -27,7 +27,7 @@ export const getAllArtistaEvento = async () => {
 export default function Home() {
     const [artistaEventos, setArtistaEventos] = useState([]);
     const navigate = useNavigate();
-    const { setUser } = useAuthUser();
+    const { user, setUser } = useAuthUser();
 
     useEffect(() => {
         async function fetchData() {
@@ -42,10 +42,8 @@ export default function Home() {
     }
 
     const handleLogout = () => {
-        // Limpa o estado do usuário e remove do armazenamento local
         setUser(null);
         localStorage.removeItem('user');
-        // Redireciona para a tela de login
         navigate('/login');
     }
 
@@ -57,7 +55,7 @@ export default function Home() {
                         <img src={header} alt=""/>
                     </div>
                     <div>
-                        <h1 className={styles.title}>BEM VINDO USUARIO</h1>
+                        <h1 className={styles.title}>BEM VINDO {user?.nome?.toUpperCase() || 'USUARIO'}</h1>
                     </div>
                 </div>
                 <div className={styles.criar}>

@@ -8,6 +8,8 @@ import ArtistaModal from "../../components/Modal/ArtistaModal";
 import axios from "axios";
 import CriarEnderecoModal from "../../components/Modal/CriarEnderecoModal";
 import CriarArtistaModal from "../../components/Modal/CriarArtistaModal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API_BASE_URL = "http://localhost:5296";
 const axiosInstance = axios.create({
@@ -16,6 +18,11 @@ const axiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+};
 
 export const getAllEnderecos = async () => {
     try {
@@ -63,10 +70,14 @@ export default function Add() {
 
     const handleEndereco = () => {
         if (nome && data && descricao && capacidade) {
+            if (new Date(data) <= new Date()) {
+                toast.error("Por favor, selecione uma data posterior à de hoje.");
+                return;
+            }
             setEvento(false);
             setEndereco(true);
         } else {
-            alert("Por favor, preencha todos os campos antes de prosseguir.");
+            toast.error("Por favor, preencha todos os campos antes de prosseguir.");
         }
     }
 
@@ -99,17 +110,15 @@ export default function Add() {
             try {
                 const response = await axiosInstance.post('/api/Evento', novoEvento);
                 const eventoCriado = response.data;
-                setCreatedEventoId(eventoCriado.eventoId); // Armazena o eventoId retornado
-                console.log('Evento criado com sucesso:', eventoCriado);
-    
+                setCreatedEventoId(eventoCriado.eventoId);
                 setEndereco(false);
                 setArtista(true);
             } catch (error) {
                 console.error("Erro ao criar evento:", error);
-                alert("Erro ao criar evento, por favor verifique os detalhes no console.");
+                toast.error("Erro ao criar evento, por favor verifique os detalhes no console.");
             }
         } else {
-            alert("Por favor, preencha todos os campos e selecione um endereço.");
+            toast.error("Por favor, preencha todos os campos e selecione um endereço.");
         }
     }    
 
@@ -123,15 +132,15 @@ export default function Add() {
 
             try {
                 const response = await axiosInstance.post('/api/ArtistaEvento', novaAssociacao);
-                console.log('Associação ArtistaEvento criada com sucesso:', response.data);
-                alert('Associação Artista-Evento criada com sucesso!');
+                console.log('Evento criada com sucesso:', response.data);
+                toast.success('Evento criada com sucesso!');
                 navigate('/');
             } catch (error) {
-                console.error("Erro ao criar associação ArtistaEvento:", error);
-                alert("Erro ao criar a associação Artista-Evento, por favor verifique os detalhes no console.");
+                console.error("Erro ao criar associação Evento:", error);
+                toast.error("Erro ao criar a associação Evento, por favor verifique os detalhes no console.");
             }
         } else {
-            alert("Por favor, selecione um artista e crie um evento antes de cadastrar.");
+            toast.error("Por favor, selecione um artista e um endereço antes de cadastrar.");
         }
     }
 
@@ -159,6 +168,7 @@ export default function Add() {
                             type="date" 
                             className={evento ? styles.inputs : styles.inputT}
                             value={data}
+                            min={getTodayDate()}
                             onChange={(e) => setData(e.target.value)}
                         />
                         <input 
@@ -200,7 +210,6 @@ export default function Add() {
                     </button>
                 </div>
             </div>
-            {/* Modais de Endereço e Artista */}
             <EnderecoModal 
                 isOpen={enderecoModalOpen} 
                 onClose={() => setEnderecoModalOpen(false)} 
@@ -221,6 +230,7 @@ export default function Add() {
                 onClose={() => setCriarArtistaModalOpen(false)} 
                 onSelect={(id) => setSelectedArtistaId(id)} 
             />
+            <ToastContainer />
         </>
     )
 }
